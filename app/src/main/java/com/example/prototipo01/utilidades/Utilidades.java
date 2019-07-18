@@ -9,9 +9,6 @@ public class Utilidades {
     public static final String CAMPO_ID_CARGO="id_cargo";
     public static final String CAMPO_NOMBRE_CARGO="nombre_cargo";
     public static final String CAMPO_DETALLE_CARGO="detalle_cargo";
-
-
-
     //FOREIGN KEY("id_tipo") REFERENCES "tipo_usuario"("id_tipo")
 
 
@@ -26,12 +23,6 @@ public class Utilidades {
     public static final String CAMPO_TELEFONO="telefono";
     public static final String CAMPO_MAIL="mail";
     //public static final String CAMPO_CIUDAD="ciudad";
-
-
-
-
-
-
 
     //Constantes campos tabla producto
     public static final String TABLA_PRODUCTOS="produtos";
