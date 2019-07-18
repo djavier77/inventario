@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_registro_usuarios"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    tools:context=".RegistroUsuariosActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="REGISTRO DE USUARIOS"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="30dp"/>
+
+    <EditText
+        android:id="@+id/campoCedula"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="cedula" />
+
+    <EditText
+        android:id="@+id/campoNombres"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="nombres" />
+
+    <EditText
+        android:id="@+id/efechaIngreso"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <Button
+        android:id="@+id/bfecha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onClickfecha"
+        android:text="Calendario" />
+
+    <EditText
+        android:id="@+id/campoNickname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="nickname" />
+
+    <EditText
+        android:id="@+id/campoPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="password"
+        android:password="true" />
+
+    <EditText
+        android:id="@+id/campoTelefono"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="telefono" />
+
+    <EditText
+        android:id="@+id/campoMail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="mail" />
+
+    <Button
+        android:id="@+id/btnRegistro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:onClick="onClick"
+        android:text="Registrar Usuario" />
+
+</LinearLayout>
