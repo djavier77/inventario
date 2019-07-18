@@ -26,9 +26,14 @@ public class MainActivity extends AppCompatActivity {
                 miIntent=new Intent(MainActivity.this, RegistroCargoActivity.class);
                 break;
             case R.id.btnRegistroMascota:
-                miIntent=new Intent(MainActivity.this,MainActivity.class);
+                miIntent=new Intent(MainActivity.this,RegistroUsuariosActivity.class);
                 break;
-
+            case R.id.btnRegistroProducto:
+                miIntent=new Intent(MainActivity.this,RegistroProductoActivity.class);
+                break;
+            case R.id.btnListarProducto:
+                miIntent=new Intent(MainActivity.this,ListarProductos.class);
+                break;
         }
         if (miIntent!=null){
             startActivity(miIntent);

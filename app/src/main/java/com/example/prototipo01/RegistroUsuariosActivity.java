@@ -19,6 +19,7 @@ import java.util.Calendar;
 
 public class RegistroUsuariosActivity extends AppCompatActivity {
 
+    ConexionSQLiteHelper conn;
     EditText campoCedula,campoNombres,campoFechaIngreso,campoNickname, campoPassword, campoTelefono, campoMail;
     Button bfecha;
     EditText efecha;
@@ -28,6 +29,8 @@ public class RegistroUsuariosActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro_usuarios);
+
+        conn=new ConexionSQLiteHelper(this,"bd_usuarios",null,1);
 
         bfecha=(Button)findViewById(R.id.bfecha);
         efecha=(EditText)findViewById(R.id.efechaIngreso);

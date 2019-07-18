@@ -16,7 +16,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RegistroCargoActivity" />
+
+        <activity android:name=".RegistroProductoActivity" android:screenOrientation="portrait"></activity>
+        <activity android:name=".RegistroUsuariosActivity" android:screenOrientation="portrait"></activity>
+        <activity android:name=".RegistroCargoActivity" android:screenOrientation="portrait"></activity>
+        <activity android:name=".ListarProductos" android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>
