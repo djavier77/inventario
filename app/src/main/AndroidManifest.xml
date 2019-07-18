@@ -18,6 +18,8 @@
         </activity>
         <activity android:name=".RegistroCargoActivity" />
         <activity android:name=".RegistroUsuariosActivity" />
+        <activity android:name=".RegistroProductoActivity" android:screenOrientation="portrait"></activity>
+        <activity android:name=".ListarProductos" android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>
