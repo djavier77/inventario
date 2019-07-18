@@ -22,6 +22,7 @@ public class Utilidades {
     public static final String CAMPO_PASSWORD="password";
     public static final String CAMPO_TELEFONO="telefono";
     public static final String CAMPO_MAIL="mail";
+    //public static final String CAMPO_USUARIO_ID_CARGO="id_usuario_cargo";
     //public static final String CAMPO_CIUDAD="ciudad";
 
     //Constantes campos tabla producto
@@ -32,6 +33,7 @@ public class Utilidades {
     public static final String CAMPO_CANTIDAD_MINIMA="cantidad_minima";
     public static final String CAMPO_PRECIO="precio";
     public static final String CAMPO_DETALLE_PRODUCTO="detalle_producto";
+    //public static final String CAMPO_PRODUCTO_USUARIO="id_producto_usuario";
     //public static final String CAMPO_OBSERVACION_TIPO_MASCOTA="observacion_tipo_mascota";
 
     public static final String CREAR_TABLA_CARGO="CREATE TABLE "+TABLA_CARGO+" ("+CAMPO_ID_CARGO+" INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -46,7 +48,6 @@ public class Utilidades {
             +CAMPO_NOMBRE_PRODUCTO+" TEXT, "+CAMPO_CANTIDAD+" INTEGER,"+CAMPO_CANTIDAD_MINIMA+" INTEGER, "+CAMPO_PRECIO+" DOUBLE, "
             +CAMPO_DETALLE_PRODUCTO+" TEXT, "+CAMPO_ID_USUARIO+" INTEGER NOT NULL," +
             "FOREIGN KEY("+CAMPO_ID_USUARIO+") REFERENCES "+TABLA_USUARIO+"("+CAMPO_ID_USUARIO+") )";
-
     //Que mas ve
 }
 

@@ -102,7 +102,7 @@ public class RegistroProductoActivity extends AppCompatActivity {
         values.put(Utilidades.CAMPO_CANTIDAD_MINIMA,campo_cantidad_minima.getText().toString());
         values.put(Utilidades.CAMPO_PRECIO,campo_precio.getText().toString());
         values.put(Utilidades.CAMPO_DETALLE_PRODUCTO,campo_detalle_producto.getText().toString());
-        //values.put(Utilidades.CAMPO_ID_USUARIO,campo.getText().toString());
+        values.put(Utilidades.CAMPO_ID_USUARIO,U);
 
         Long idResultante=db.insert(Utilidades.TABLA_PRODUCTOS,Utilidades.CAMPO_NOMBRE_PRODUCTO,values);
 
