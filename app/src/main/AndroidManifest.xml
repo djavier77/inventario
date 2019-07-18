@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".RegistroCargoActivity" />
+        <activity android:name=".RegistroUsuariosActivity" />
     </application>
 
 </manifest>

@@ -70,6 +70,11 @@
         android:layout_height="wrap_content"
         android:hint="mail" />
 
+    <Spinner
+        android:id="@+id/comboCargo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <Button
         android:id="@+id/btnRegistro"
         android:layout_width="match_parent"

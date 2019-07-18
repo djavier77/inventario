@@ -25,8 +25,8 @@ public class MainActivity extends AppCompatActivity {
             case R.id.btnOpcionRegistro:
                 miIntent=new Intent(MainActivity.this, RegistroCargoActivity.class);
                 break;
-            case R.id.btnRegistroMascota:
-                miIntent=new Intent(MainActivity.this,MainActivity.class);
+            case R.id.btnRegistroUsuario:
+                miIntent=new Intent(MainActivity.this,RegistroUsuariosActivity.class);
                 break;
 
         }

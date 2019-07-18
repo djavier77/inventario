@@ -19,7 +19,7 @@
         android:text="Crear BD" />
 
     <Button
-        android:id="@+id/btnRegistroMascota"
+        android:id="@+id/btnRegistroUsuario"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="onClick"
