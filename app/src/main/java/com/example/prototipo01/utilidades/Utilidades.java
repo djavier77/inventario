@@ -11,8 +11,7 @@ public class Utilidades {
     public static final String CAMPO_DETALLE_CARGO="detalle_cargo";
 
 
-    public static final String CREAR_TABLA_CARGO="CREATE TABLE "+TABLA_CARGO+" ("+CAMPO_ID_CARGO+" INTEGER PRIMARY KEY AUTOINCREMENT, "
-            +CAMPO_NOMBRE_CARGO+" TEXT, "+CAMPO_DETALLE_CARGO+" TEXT)";
+
     //FOREIGN KEY("id_tipo") REFERENCES "tipo_usuario"("id_tipo")
 
 
@@ -29,10 +28,7 @@ public class Utilidades {
     //public static final String CAMPO_CIUDAD="ciudad";
 
 
-    public static final String CREAR_TABLA_USUARIO="CREATE TABLE "+TABLA_USUARIO+" ( "+CAMPO_ID_USUARIO+" INTEGER PRIMARY KEY AUTOINCREMENT, " +
-            " "+CAMPO_CEDULA+" "+"TEXT, " + CAMPO_NOMBRES+" "+"TEXT, "+CAMPO_FECHA_INGRESO+" "+"TEXT, " +
-            CAMPO_NICKNAME+" "+"TEXT, " + CAMPO_PASSWORD+" "+"TEXT, " + CAMPO_TELEFONO+" "+"TEXT, " + CAMPO_MAIL+" "+"TEXT,"+CAMPO_ID_CARGO+" INTEGER NOT NULL," +
-            "FOREIGN KEY("+CAMPO_ID_CARGO+") REFERENCES "+TABLA_CARGO+"("+CAMPO_ID_CARGO+") )";
+
 
 
 
@@ -46,6 +42,14 @@ public class Utilidades {
     public static final String CAMPO_PRECIO="precio";
     public static final String CAMPO_DETALLE_PRODUCTO="detalle_producto";
     //public static final String CAMPO_OBSERVACION_TIPO_MASCOTA="observacion_tipo_mascota";
+
+    public static final String CREAR_TABLA_CARGO="CREATE TABLE "+TABLA_CARGO+" ("+CAMPO_ID_CARGO+" INTEGER PRIMARY KEY AUTOINCREMENT, "
+            +CAMPO_NOMBRE_CARGO+" TEXT, "+CAMPO_DETALLE_CARGO+" TEXT)";
+
+    public static final String CREAR_TABLA_USUARIO="CREATE TABLE "+TABLA_USUARIO+" ( "+CAMPO_ID_USUARIO+" INTEGER PRIMARY KEY AUTOINCREMENT, " +
+            " "+CAMPO_CEDULA+" "+"TEXT, " + CAMPO_NOMBRES+" "+"TEXT, "+CAMPO_FECHA_INGRESO+" "+"TEXT, " +
+            CAMPO_NICKNAME+" "+"TEXT, " + CAMPO_PASSWORD+" "+"TEXT, " + CAMPO_TELEFONO+" "+"TEXT, " + CAMPO_MAIL+" "+"TEXT,"+CAMPO_ID_CARGO+" INTEGER NOT NULL," +
+            "FOREIGN KEY("+CAMPO_ID_CARGO+") REFERENCES "+TABLA_CARGO+"("+CAMPO_ID_CARGO+") )";
 
     public static final String CREAR_TABLA_PRODUCTOS="CREATE TABLE "+TABLA_PRODUCTOS+" ("+CAMPO_ID_PRODUCTO+" INTEGER PRIMARY KEY AUTOINCREMENT, "
             +CAMPO_NOMBRE_PRODUCTO+" TEXT, "+CAMPO_CANTIDAD+" INTEGER,"+CAMPO_CANTIDAD_MINIMA+" INTEGER, "+CAMPO_PRECIO+" DOUBLE, "
