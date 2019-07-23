@@ -3,10 +3,11 @@ package com.example.prototipo01.correo;
 public class Config {
     //////ingresar el correo y contrasena de quien manda el correo(emisor), hotmail, gmail falta arreglar
 //    //GMAIL
-//    public static final String EMAIL ="stalynandrango950@gmail.com";
-//    public static final String PASSWORD ="junio250";
+//    public static final String EMAIL ="@gmail.com";
+//    public static final String PASSWORD ="abc123";
 
     ////HOTMAIL
-    public static final String EMAIL ="andrango_stalyn@hotmail.com";
-    public static final String PASSWORD ="junio.250";
+    //ingresar valores
+    public static final String EMAIL ="correoEmisor@hotmail.com";
+    public static final String PASSWORD ="contrasenia";
 }
