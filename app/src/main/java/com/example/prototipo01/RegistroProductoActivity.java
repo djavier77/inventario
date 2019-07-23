@@ -23,7 +23,7 @@ import java.util.ArrayList;
 public class RegistroProductoActivity extends AppCompatActivity {
 
     ConexionSQLiteHelper conn;
-    EditText campo_id_nombre_producto,campo_cantidad,campo_cantidad_minima,campo_detalle_producto,campo_precio;
+    EditText campo_codigo_barra,campo_id_nombre_producto,campo_cantidad,campo_cantidad_minima,campo_detalle_producto,campo_precio;
     Spinner comboUsuarios;
     ArrayList<String> listaTipoU;
     ArrayList<Usuarios> tipoListU;
@@ -36,6 +36,7 @@ public class RegistroProductoActivity extends AppCompatActivity {
 
         conn=new ConexionSQLiteHelper(getApplicationContext(),"bd_usuarios",null,1);
 
+        campo_codigo_barra = (EditText) findViewById(R.id.campoCodigoBarra);
         campo_id_nombre_producto = (EditText) findViewById(R.id.campo_id_nombre_producto);
         campo_cantidad = (EditText) findViewById(R.id.campo_cantidad);
         campo_cantidad_minima = (EditText) findViewById(R.id.campo_cantidad_minima);
@@ -97,6 +98,7 @@ public class RegistroProductoActivity extends AppCompatActivity {
         SQLiteDatabase db=conn.getWritableDatabase();
 
         ContentValues values=new ContentValues();
+        values.put(Utilidades.CAMPO_CODIGO_PRODUCTO,campo_codigo_barra.getText().toString());
         values.put(Utilidades.CAMPO_NOMBRE_PRODUCTO,campo_id_nombre_producto.getText().toString());
         values.put(Utilidades.CAMPO_CANTIDAD,campo_cantidad.getText().toString());
         values.put(Utilidades.CAMPO_CANTIDAD_MINIMA,campo_cantidad_minima.getText().toString());

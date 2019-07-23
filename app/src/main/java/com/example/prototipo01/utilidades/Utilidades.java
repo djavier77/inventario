@@ -28,6 +28,7 @@ public class Utilidades {
     //Constantes campos tabla producto
     public static final String TABLA_PRODUCTOS="produtos";
     public static final String CAMPO_ID_PRODUCTO="id_producto";
+    public static final String CAMPO_CODIGO_PRODUCTO="codigo_producto";
     public static final String CAMPO_NOMBRE_PRODUCTO="id_nombre_producto";
     public static final String CAMPO_CANTIDAD="cantidad";
     public static final String CAMPO_CANTIDAD_MINIMA="cantidad_minima";
@@ -45,7 +46,7 @@ public class Utilidades {
             "FOREIGN KEY("+CAMPO_ID_CARGO+") REFERENCES "+TABLA_CARGO+"("+CAMPO_ID_CARGO+") )";
 
     public static final String CREAR_TABLA_PRODUCTOS="CREATE TABLE "+TABLA_PRODUCTOS+" ("+CAMPO_ID_PRODUCTO+" INTEGER PRIMARY KEY AUTOINCREMENT, "
-            +CAMPO_NOMBRE_PRODUCTO+" TEXT, "+CAMPO_CANTIDAD+" INTEGER,"+CAMPO_CANTIDAD_MINIMA+" INTEGER, "+CAMPO_PRECIO+" DOUBLE, "
+            +CAMPO_CODIGO_PRODUCTO+" TEXT UNIQUE, "+CAMPO_NOMBRE_PRODUCTO+" TEXT, "+CAMPO_CANTIDAD+" INTEGER,"+CAMPO_CANTIDAD_MINIMA+" INTEGER, "+CAMPO_PRECIO+" DOUBLE, "
             +CAMPO_DETALLE_PRODUCTO+" TEXT, "+CAMPO_ID_USUARIO+" INTEGER NOT NULL," +
             "FOREIGN KEY("+CAMPO_ID_USUARIO+") REFERENCES "+TABLA_USUARIO+"("+CAMPO_ID_USUARIO+") )";
     //Que mas ve

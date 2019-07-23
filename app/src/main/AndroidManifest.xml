@@ -21,6 +21,8 @@
         <activity android:name=".RegistroCargoActivity" />
         <activity android:name=".RegistroUsuariosActivity" />
         <activity android:name=".ActualizarDatos"/>
+        <activity android:name=".scaner.ScannerProducto"/>
+        <activity android:name=".correo.MainActivityMail"/>
         <activity
             android:name=".RegistroProductoActivity"
             android:screenOrientation="portrait" />

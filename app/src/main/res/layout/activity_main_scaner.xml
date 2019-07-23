@@ -11,18 +11,22 @@
     android:paddingTop="16dp"
 
     android:orientation="vertical"
-    tools:context=".scaner.MainActivity">
+    tools:context=".scaner.ScannerProducto">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="390dp"
-        android:layout_height="136dp"
-        android:text="TextView"
-        />
+        android:layout_height="45dp"
+        android:text="TextView" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Escanear" />
+
+    <ListView
+        android:id="@+id/listViewProductos"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </LinearLayout>
