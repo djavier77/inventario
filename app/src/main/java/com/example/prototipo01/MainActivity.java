@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void onClick(View view) {
-
+        String userLogeado = getIntent().getStringExtra("usuario");
         Intent miIntent=null;
         switch (view.getId()){
             case R.id.btnOpcionRegistro:
@@ -34,6 +34,12 @@ public class MainActivity extends AppCompatActivity {
             case R.id.btnListarProducto:
                 miIntent=new Intent(MainActivity.this,ListarProductos.class);
                 break;
+            case R.id.btnActualizar:
+                miIntent=new Intent(MainActivity.this,ActualizarDatos.class);
+                miIntent.putExtra("usuarioLogeado", userLogeado);
+                break;
+
+
         }
         if (miIntent!=null){
             startActivity(miIntent);

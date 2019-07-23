@@ -24,6 +24,11 @@ import com.example.prototipo01.utilidades.Utilidades;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+import javax.crypto.Cipher;
+import javax.crypto.KeyGenerator;
+import javax.crypto.SecretKey;
+import javax.crypto.spec.SecretKeySpec;
+
 
 public class RegistroUsuariosActivity extends AppCompatActivity {
 
@@ -36,6 +41,7 @@ public class RegistroUsuariosActivity extends AppCompatActivity {
     Button bfecha;
     EditText efecha;
     private  int dia,mes,ano;
+    private static final String AES = "AES";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -115,12 +121,47 @@ public class RegistroUsuariosActivity extends AppCompatActivity {
         //registrarUsuariosSql();
     }
 
+    private String encriptarAES(String mensajeAEncriptar) {
+        try {
+            //Instancia del Generador de llaves tipo AES
+            KeyGenerator keyGenerator = KeyGenerator.getInstance(AES);
+            //Inicializamos el generador de llaves especificando el tamaño. Como hemos dicho 128bytes
+            keyGenerator.init(128);
+            //Instanciamos una llave secreta
+            SecretKey secretKey = keyGenerator.generateKey();
+            //codificamos la llave en bytes
+            byte[] bytesSecretKey = secretKey.getEncoded();
+            //Construimos una clave secreta indicandole que es de tipo AES
+            SecretKeySpec secretKeySpec = new SecretKeySpec(bytesSecretKey, AES);
+            //Instanciamos un objeto de cifrado de tipo AES
+            Cipher cipher = Cipher.getInstance(AES);
+            //Inicializamos el sistema de cifrado en modo Encriptacion con nuestra clave que hemos creado antes
+            cipher.init(Cipher.ENCRYPT_MODE, secretKeySpec);
+            //Procedemos a Encriptar el mensaje
+            byte[] mensajeEncritado = cipher.doFinal(mensajeAEncriptar.getBytes());
+            return mensajeEncritado.toString();
+        /*Log.d("TAG", new String(mensajeEncritado));
+
+
+        //Iniciamos el sistema de cifrado en modos Desencriptacion con nuestra clave
+        cipher.init(Cipher.DECRYPT_MODE, secretKeySpec);
+        //Obtenemos el array de bytes del mensaje desencriptado
+        byte[] mensajeDesEncriptado = cipher.doFinal(mensajeEncritado);
+        Log.d("TAG", new String(mensajeDesEncriptado));
+        return new String(mensajeDesEncriptado);*/
+        }
+        catch (Exception e){
+
+        }
+        return "null";
+    }
 
     private String encriptar(String pass){
         String encode_text=null;
         try {
 
             //Obtenemos el texto desde el cuadro de texto
+
             String original = pass;
 
             RSA rsa = new RSA();
@@ -132,8 +173,8 @@ public class RegistroUsuariosActivity extends AppCompatActivity {
             rsa.genKeyPair(1024);
 
             //Guardamos en la memoria las claves
-            rsa.saveToDiskPrivateKey("rsa.pri");
-            rsa.saveToDiskPublicKey("rsa.pub");
+            rsa.saveToDiskPrivateKey("rsa"+campoNickname.getText().toString()+".pri");
+            rsa.saveToDiskPublicKey("rsa"+campoNickname.getText().toString()+".pub");
 
             //Ciframos
             encode_text = rsa.Encrypt(original);
@@ -143,7 +184,9 @@ public class RegistroUsuariosActivity extends AppCompatActivity {
         } catch (Exception e) {
             Toast.makeText(getApplicationContext(),"Error al encriptar la clave",Toast.LENGTH_LONG).show();
         }
+
         return encode_text;
+
     }
 
     private void registrarUsuarios() {
@@ -184,9 +227,9 @@ public class RegistroUsuariosActivity extends AppCompatActivity {
 
             Toast.makeText(getApplicationContext(),"Se registro correctamente: "+idResultante,Toast.LENGTH_SHORT).show();
             db.close();
-
+            finish();
         }else{
-            Toast.makeText(getApplicationContext(),"Debe seleccionar un Dueño",Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(),"Debe seleccionar un Cargo",Toast.LENGTH_LONG).show();
         }
 
 
