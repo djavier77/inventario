@@ -6,7 +6,7 @@ public class Config {
 //    public static final String EMAIL ="@gmail.com";
 //    public static final String PASSWORD ="abc123";
 
-    ////HOTMAIL
+    ////HOTMAIL XD
     //ingresar valores
     public static final String EMAIL ="danilo.j.c7@hotmail.com";
     public static final String PASSWORD ="asdfghj777";
