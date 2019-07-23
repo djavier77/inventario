@@ -3,6 +3,7 @@ package com.example.prototipo01.entidades;
 import java.io.Serializable;
 
 public class Usuarios implements Serializable {
+
     private String cedula;
     private String nombres;
     private String fecha_ingreso;
