@@ -21,10 +21,16 @@
         android:layout_marginBottom="30dp"/>
 
     <EditText
+        android:id="@+id/campoCodigoBarra"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Codigo de Barras" />
+
+    <EditText
         android:id="@+id/campo_id_nombre_producto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Id producto" />
+        android:hint="Nombre producto" />
 
     <EditText
         android:id="@+id/campo_cantidad"

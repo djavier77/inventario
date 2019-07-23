@@ -46,4 +46,18 @@
         android:onClick="onClick"
         android:text="Actualizar datos usuario" />
 
+    <Button
+        android:id="@+id/btnScanner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onClick"
+        android:text="Scanner" />
+
+    <Button
+        android:id="@+id/btnMail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onClick"
+        android:text="Mail" />
+
 </LinearLayout>

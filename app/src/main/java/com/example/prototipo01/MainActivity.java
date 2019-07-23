@@ -6,6 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.prototipo01.correo.MainActivityMail;
+import com.example.prototipo01.scaner.ScannerProducto;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -38,8 +41,14 @@ public class MainActivity extends AppCompatActivity {
                 miIntent=new Intent(MainActivity.this,ActualizarDatos.class);
                 miIntent.putExtra("usuarioLogeado", userLogeado);
                 break;
-
-
+            case R.id.btnScanner:
+                miIntent=new Intent(MainActivity.this, ScannerProducto.class);
+                //miIntent.putExtra("usuarioLogeado", userLogeado);
+                break;
+            case R.id.btnMail:
+                miIntent=new Intent(MainActivity.this, MainActivityMail.class);
+                //miIntent.putExtra("usuarioLogeado", userLogeado);
+                break;
         }
         if (miIntent!=null){
             startActivity(miIntent);
