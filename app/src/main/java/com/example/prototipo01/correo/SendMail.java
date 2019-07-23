@@ -50,11 +50,11 @@ public class SendMail extends AsyncTask<Void,Void,Void> {
 
         Properties props=new Properties();
 //////PARA GMAIL
-//        props.put("mail.smtp.host","smtp.gmail.com");
-//        props.put("mail.smtp.socketFactory.port","465");
-//        props.put("mail.smtp.socketFactory.class","javax.net.ssl.SSLSocketFactory");
-//        props.put("mail.smtp.auth","true");
-//        props.put("mail.smtp.port","465");
+       props.put("mail.smtp.host","smtp.gmail.com");
+        props.put("mail.smtp.socketFactory.port","465");
+        props.put("mail.smtp.socketFactory.class","javax.net.ssl.SSLSocketFactory");
+        props.put("mail.smtp.auth","true");
+        props.put("mail.smtp.port","465");
 
 //// //PARA GMAIL con imap
 //        props.put("mail.imap.host","smtp.gmail.com");
@@ -64,11 +64,11 @@ public class SendMail extends AsyncTask<Void,Void,Void> {
 //        props.put("mail.imap.port","465");
 
         //para hotmail con smtp
-        props.put("mail.smtp.host","smtp.live.com");
+//        props.put("mail.smtp.host","smtp.live.com");
         // properties.put("mail.smtp.socketFactory.port","587");
         //  properties.put("mail.smtp.socketFactory.class","javax.net.ssl.SSLSocketFactory");
-        props.put("mail.smtp.auth","true");
-        props.put("mail.smtp.starttls.enable","true");
+//        props.put("mail.smtp.auth","true");
+//        props.put("mail.smtp.starttls.enable","true");
 
 //////para hotmail con imap
 //        props.put("mail.imap.host","imap.live.com");

@@ -8,6 +8,6 @@ public class Config {
 
     ////HOTMAIL XD
     //ingresar valores
-    public static final String EMAIL ="danilo.j.c7@hotmail.com";
-    public static final String PASSWORD ="asdfghj777";
+    public static final String EMAIL ="danilojc.inf@gmail.com";
+    public static final String PASSWORD ="prueba2019";
 }

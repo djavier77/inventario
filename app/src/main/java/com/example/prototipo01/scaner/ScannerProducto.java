@@ -17,11 +17,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.prototipo01.ConexionSQLiteHelper;
 import com.example.prototipo01.MainActivity;
 import com.example.prototipo01.R;
+import com.example.prototipo01.correo.SendMail;
 import com.example.prototipo01.entidades.Productos;
+import com.example.prototipo01.entidades.Usuario;
+import com.example.prototipo01.entidades.Usuarios;
 import com.example.prototipo01.utilidades.Utilidades;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
-import com.example.prototipo01.correo.MainActivityMail;
+//import com.example.prototipo01.correo.MainActivityMail;
 
 import java.util.ArrayList;
 
@@ -35,10 +38,12 @@ public class ScannerProducto extends AppCompatActivity {
 
     ListView listViewProductos;
     ArrayList<String> listaInformacion;
+    ArrayList<String> listaInformacionUser;
     ArrayList<Productos> listaProductos;
+    ArrayList<Usuarios> listaUsuarios;
     ConexionSQLiteHelper conn;
 
-    String t;
+    String t,mailUser,codUsuario;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,9 +81,28 @@ public class ScannerProducto extends AppCompatActivity {
                     }
                 });
 
+                if(stock<=cantidadMinima)
+                {
+
+                    SendEmail(producto,cantidadMinima,buscarMailUsuario(codUsuario));
+                }
+
+              /*  if(stock<=cantidadMinima)
+        {
+
+            SendEmail(producto,cantidadMinima,buscarMailUsuario(codUsuario));
+        }*/
+
+
+
             }else {
                 tvBarCode.setText("Error al escanear de barras");
+
+
+
+
                 //****************************************
+
                /* consultarListaProductos();
 
 
@@ -159,13 +183,13 @@ public class ScannerProducto extends AppCompatActivity {
         obtenerListaP();
 
         //Codigo if para envio de mil
-/*
-        if(stock<=cantidadMinima)
+
+        /*if(stock<=cantidadMinima)
         {
-            MainActivityMail mail = new MainActivityMail();
-            mail.Email(producto,cantidadMinima,"djcollaguazoc@uce.edu.ec");
-        }
-*/
+
+            SendEmail(producto,cantidadMinima,"djcollaguazoc@uce.edu.ec");
+        }*/
+
 
 
 
@@ -184,8 +208,63 @@ public class ScannerProducto extends AppCompatActivity {
             stock=listaProductos.get(i).getCantidad();
             cantidadMinima=listaProductos.get(i).getCantidad_minima();
             producto=listaProductos.get(i).getId_nombre_producto();
+            codUsuario=listaProductos.get(i).getId_usuario().toString();
         }
     }
+
+
+    public  void SendEmail(String producto, Integer cantidad, String email){
+        //String email=editTextEmail.getText().toString().trim();
+        // String subject=editTextSubject.getText().toString().trim();
+        //************************se coloca de forma predeterminada el asunto, en este caso Stock Bajo
+        String subject="Alerta de Stock minimo";
+        String message="El producto "+producto+" esta por debajo del Stock minimo, (Cantidad actual "+cantidad+"), favor solictar mas producto. \n\n Invent V 1.0  ";
+
+        SendMail sm=new SendMail(this,email,subject,message);
+
+        sm.execute();
+    }
+
+
+
+
+    private String buscarMailUsuario(String codUsuario) {
+        conn=new ConexionSQLiteHelper(this,"bd_usuarios",null,1);
+        SQLiteDatabase db=conn.getReadableDatabase();
+
+
+        Usuarios productos=null;
+        listaUsuarios=new ArrayList<Usuarios>();
+        //select * from usuarios
+        //codigoBarra="12345";
+        Cursor cursor=db.rawQuery("SELECT mail FROM "+ Utilidades.TABLA_USUARIO+" WHERE id_usuario="+codUsuario+"",null);
+
+        //cursor.moveToFirst();
+        while (cursor.moveToNext()){
+            productos=new Usuarios();
+            productos.setMail(cursor.getString(0));
+
+           mailUser= cursor.getString(0).toString();
+        }
+
+        //obtenerListaU();
+        return mailUser;
+    }
+
+    private void obtenerListaU() {
+        listaInformacion=new ArrayList<String>();
+        System.out.println(listaProductos.size());
+        for (int i=0; i<listaProductos.size();i++){
+            listaInformacion.add(listaProductos.get(i).getId_nombre_producto()+" - Precio: "
+                    +listaProductos.get(i).getPrecio()+"$ - Detalle: "+listaProductos.get(i).getDetalle_producto()+" - Cantidad "+listaProductos.get(i).getCantidad());
+//obtener valoras para enviar al metodo Email
+            stock=listaProductos.get(i).getCantidad();
+            cantidadMinima=listaProductos.get(i).getCantidad_minima();
+            producto=listaProductos.get(i).getId_nombre_producto();
+        }
+    }
+
+
 
 
 }

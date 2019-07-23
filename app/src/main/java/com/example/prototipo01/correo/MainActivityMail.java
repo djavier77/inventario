@@ -42,7 +42,7 @@ public class MainActivityMail extends AppCompatActivity implements View.OnClickL
 
         sm.execute();
     }
-
+/*
     public  void Email(String producto, Integer cantidad, String email){
         //String email=editTextEmail.getText().toString().trim();
         // String subject=editTextSubject.getText().toString().trim();
@@ -53,7 +53,7 @@ public class MainActivityMail extends AppCompatActivity implements View.OnClickL
         SendMail sm=new SendMail(this,email,subject,message);
 
         sm.execute();
-    }
+    }*/
 
 
     @Override
