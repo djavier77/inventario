@@ -27,7 +27,6 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation 'com.google.android.material:material:1.0.0-rc01'
-
     //librerias para el correo
     implementation files('libs/activation.jar')
     implementation files('libs/mail.jar')
@@ -35,4 +34,7 @@ dependencies {
     //librerias para el sacaner
     implementation 'com.journeyapps:zxing-android-embedded:3.5.0'
     implementation 'com.google.zxing:core:3.3.0'
+    //boton flotante
+    implementation 'io.github.yavski:fab-speed-dial:1.0.7'
+    implementation 'com.github.clans:fab:1.6.4'
 }

@@ -17,7 +17,7 @@
         android:id="@+id/textView"
         android:layout_width="390dp"
         android:layout_height="45dp"
-        android:text="TextView" />
+        android:text="Información de Producto:" />
 
     <Button
         android:id="@+id/button"

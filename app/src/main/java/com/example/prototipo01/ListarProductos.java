@@ -74,8 +74,8 @@ public class ListarProductos extends AppCompatActivity{
         listaInformacion=new ArrayList<String>();
         System.out.println(listaProductos.size());
         for (int i=0; i<listaProductos.size();i++){
-            listaInformacion.add(listaProductos.get(i).getId_nombre_producto()+" - Precio: "
-                    +listaProductos.get(i).getPrecio()+" - Usuario "+listaProductos.get(i).getId_usuario());
+            listaInformacion.add("Producto: "+listaProductos.get(i).getId_nombre_producto()+"\nPrecio: "
+                    +listaProductos.get(i).getPrecio()+"\nUsuario: "+listaProductos.get(i).getId_usuario());
         }
     }
 }

@@ -5,16 +5,23 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 
 import com.example.prototipo01.correo.MainActivityMail;
 import com.example.prototipo01.scaner.ScannerProducto;
+import com.github.clans.fab.FloatingActionMenu;
 
 public class MainActivity extends AppCompatActivity {
+    FloatingActionMenu actionMenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
+
+        actionMenu = (FloatingActionMenu)findViewById(R.id.fabPrincipal);
+        actionMenu.setClosedOnTouchOutside(true);
 
         ConexionSQLiteHelper conn=new ConexionSQLiteHelper(this,"bd_usuarios",null,1);
 
@@ -41,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
                 miIntent=new Intent(MainActivity.this,ActualizarDatos.class);
                 miIntent.putExtra("usuarioLogeado", userLogeado);
                 break;
-            case R.id.btnScanner:
+            case R.id.fabScanner:
                 miIntent=new Intent(MainActivity.this, ScannerProducto.class);
                 //miIntent.putExtra("usuarioLogeado", userLogeado);
                 break;
