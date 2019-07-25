@@ -83,20 +83,31 @@ public class Login extends AppCompatActivity {
                 //preguntamos si los datos ingresados son iguales
                 if (usuarioIng.equals(usua) && passIng.equals(decode_text_pass)) {
                     if (idCargo.equals("1")) {
+                        campoUsuario.setText("");
+                        campoPass.setText("");
                         Toast.makeText(this, "Ingresando", Toast.LENGTH_LONG).show();
                         Intent intent = new Intent(this, MainActivityAdmin.class);
                         intent.putExtra("usuario", usuarioIng);
                         startActivity(intent);
                     }
                     else {
+                        campoUsuario.setText("");
+                        campoPass.setText("");
                         Toast.makeText(this, "Ingresando", Toast.LENGTH_LONG).show();
                         Intent intent = new Intent(this, MainActivity.class);
                         intent.putExtra("usuario", usuarioIng);
                         startActivity(intent);
                     }
                 }
+                else {
+                    campoUsuario.setText("");
+                    campoPass.setText("");
+                    Toast.makeText(getApplicationContext(),"El Usuario no existe",Toast.LENGTH_LONG).show();
+                }
             }
         }catch (Exception e){
+            campoUsuario.setText("");
+            campoPass.setText("");
             Toast.makeText(getApplicationContext(),"El Usuario no existe",Toast.LENGTH_LONG).show();
             //        limpiar();
         }

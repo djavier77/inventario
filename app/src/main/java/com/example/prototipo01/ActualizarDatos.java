@@ -56,9 +56,9 @@ public class ActualizarDatos extends AppCompatActivity {
 
 
         comboCategoria= (Spinner) findViewById(R.id.comboCategoria);
-
-        obtnerdatos();
         consultarComboTipo();
+
+
 
 
         ArrayAdapter<CharSequence> adaptador=new ArrayAdapter
@@ -82,6 +82,7 @@ public class ActualizarDatos extends AppCompatActivity {
 
             }
         });
+        obtnerdatos();
     }
 
     public void onClick(View view) {
@@ -108,11 +109,12 @@ public class ActualizarDatos extends AppCompatActivity {
         String mailb = campoMail.getText().toString();
         //variable para asignar el tipo de usuario = tipo
 
-        String update="UPDATE "+ Utilidades.TABLA_USUARIO+" SET cedula='"+cedulab+"',nombres='"+nombreb+"',fecha_ingreso='"+fechaIngresob+"',user='"+userb+"',password='"+passb+"',telefono='"+telefonob+"',mail='"+mailb+"'  WHERE cedula='"+cedulab+"'";
+        String update="UPDATE "+ Utilidades.TABLA_USUARIO+" SET cedula='"+cedulab+"',nombres='"+nombreb+"',fecha_ingreso='"+fechaIngresob+"',nickname='"+userb+"',password='"+passb+"',telefono='"+telefonob+"',mail='"+mailb+"'  WHERE cedula='"+cedulab+"'";
         db.execSQL(update);
         db.close();
         Toast.makeText(getApplicationContext(),"Datos Actualizados ", Toast.LENGTH_SHORT).show();
         db.close();
+        finish();
     }
 
         ///Para cargar el combobox
@@ -142,11 +144,11 @@ public class ActualizarDatos extends AppCompatActivity {
 
 
     private void obtenerLista() {
-        listaTipo2 =new ArrayList<String>();
-        listaTipo2.add("Seleccione");
+        listaTipo =new ArrayList<String>();
+        listaTipo.add("Seleccione");
 
         for(int i=0;i<personasList.size();i++){
-            listaTipo2.add(personasList.get(i).getNombreCargo());
+            listaTipo.add(personasList.get(i).getNombreCargo());
         }
     }
 
@@ -195,7 +197,7 @@ public class ActualizarDatos extends AppCompatActivity {
         campoNombres.setText(loginList.get(0).getNombres());
         campoFechaIngreso.setText(loginList.get(0).getFecha_ingreso());
         campoNickname.setText(loginList.get(0).getNickname());
-        campoClave.setText("****");
+        //campoClave.setText("****");
         campoTelefono.setText(loginList.get(0).getTelefono());
         campoMail.setText(loginList.get(0).getMail());
 

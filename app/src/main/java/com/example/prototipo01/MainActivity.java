@@ -32,12 +32,7 @@ public class MainActivity extends AppCompatActivity {
         String userLogeado = getIntent().getStringExtra("usuario");
         Intent miIntent=null;
         switch (view.getId()){
-            /*case R.id.btnOpcionRegistro:
-                miIntent=new Intent(MainActivity.this, RegistroCargoActivity.class);
-                break;
-            case R.id.btnRegistroUsuario:
-                miIntent=new Intent(MainActivity.this,RegistroUsuariosActivity.class);
-                break;*/
+
             case R.id.btnActualizarProducto:
                 miIntent=new Intent(MainActivity.this,ActualizarProductos.class);
                 miIntent.putExtra("usuarioLogeado", userLogeado);
@@ -52,10 +47,10 @@ public class MainActivity extends AppCompatActivity {
                 miIntent=new Intent(MainActivity.this,ActualizarDatos.class);
                 miIntent.putExtra("usuarioLogeado", userLogeado);
                 break;
-            //case R.id.fabScanner:
-             //   miIntent=new Intent(MainActivity.this, RegistroProductoActivity.class);
-                //miIntent.putExtra("usuarioLogeado", userLogeado);
-             //   break;
+            case R.id.fabScanner:
+                miIntent=new Intent(MainActivity.this, ScannerProducto.class);
+                miIntent.putExtra("usuarioLogeado", userLogeado);
+                break;
             case R.id.btnScanner:
                 miIntent=new Intent(MainActivity.this, ScannerProducto.class);
                 //miIntent.putExtra("usuarioLogeado", userLogeado);
