@@ -4,60 +4,84 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="#D8C2FAF5"
     android:orientation="vertical"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context=".MainActivity">
+
 
     <Button
         android:id="@+id/btnOpcionRegistro"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#C9F4F7F8"
         android:onClick="onClick"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
         android:text="Resgistrar Cargo" />
+
 
     <Button
         android:id="@+id/btnRegistroUsuario"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#C9F4F7F8"
         android:onClick="onClick"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
         android:text="Registrar Usuarios" />
 
     <Button
         android:id="@+id/btnRegistroProducto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="#C9F4F7F8"
         android:onClick="onClick"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
         android:text="Registrar Producto" />
 
     <Button
         android:id="@+id/btnListarProducto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#C9F4F7F8"
         android:onClick="onClick"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
         android:text="Listar Producto" />
 
     <Button
         android:id="@+id/btnActualizar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#C9F4F7F8"
         android:onClick="onClick"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
         android:text="Actualizar datos usuario" />
 
     <Button
         android:id="@+id/btnScanner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#C9F4F7F8"
         android:onClick="onClick"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
         android:text="Scanner" />
 
     <Button
         android:id="@+id/btnMail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="#C9F4F7F8"
         android:onClick="onClick"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
         android:text="Mail" />
 
 </LinearLayout>
