@@ -70,7 +70,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="Registrar producto" />
+                android:text="Registrar Producto" />
 
             <ImageButton
                 android:id="@+id/btnRegistroProducto"
