@@ -19,8 +19,8 @@ public class MainActivityAdmin extends AppCompatActivity {
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main_admin);
 
-        actionMenu = (FloatingActionMenu)findViewById(R.id.fabPrincipal);
-        actionMenu.setClosedOnTouchOutside(true);
+        //actionMenu = (FloatingActionMenu)findViewById(R.id.fabPrincipal);
+        //actionMenu.setClosedOnTouchOutside(true);
 
         ConexionSQLiteHelper conn=new ConexionSQLiteHelper(this,"bd_usuarios",null,1);
 
@@ -31,6 +31,9 @@ public class MainActivityAdmin extends AppCompatActivity {
         String userLogeado = getIntent().getStringExtra("usuario");
         Intent miIntent=null;
         switch (view.getId()){
+            case R.id.btnActualizarProducto:
+                miIntent=new Intent(MainActivityAdmin.this,ActualizarProductos.class);
+                break;
             case R.id.btnOpcionRegistro:
                 miIntent=new Intent(MainActivityAdmin.this, RegistroCargoActivity.class);
                 break;
@@ -47,10 +50,10 @@ public class MainActivityAdmin extends AppCompatActivity {
                 miIntent=new Intent(MainActivityAdmin.this,ActualizarDatos.class);
                 miIntent.putExtra("usuarioLogeado", userLogeado);
                 break;
-            case R.id.fabScanner:
-                miIntent=new Intent(MainActivityAdmin.this, ScannerProducto.class);
+            //case R.id.fabScanner:
+              //  miIntent=new Intent(MainActivityAdmin.this, ScannerProducto.class);
                 //miIntent.putExtra("usuarioLogeado", userLogeado);
-                break;
+                //break;
             case R.id.btnScanner:
                 miIntent=new Intent(MainActivityAdmin.this, ScannerProducto.class);
                 //miIntent.putExtra("usuarioLogeado", userLogeado);
