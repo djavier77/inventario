@@ -26,44 +26,44 @@
         android:id="@+id/campoCedula"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Cédula" />
+        android:hint="Cédula:" />
 
     <EditText
         android:id="@+id/campoNombres"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nombres" />
+        android:hint="Nombres:" />
 
     <EditText
         android:id="@+id/campoFechaIngreso"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:editable="false"
-        android:hint="Fecha ingreso" />
+        android:hint="Fecha ingreso:" />
 
     <EditText
         android:id="@+id/campoNickname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Usuario" />
+        android:hint="Usuario:" />
 
     <EditText
         android:id="@+id/campoClave"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Clave" />
+        android:hint="Clave:" />
 
     <EditText
         android:id="@+id/campoTelefono"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Teléfono de contacto" />
+        android:hint="Teléfono de contacto:" />
 
     <EditText
         android:id="@+id/campoMail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Mail" />
+        android:hint="Mail:" />
 
     <Spinner
         android:id="@+id/comboCategoria"

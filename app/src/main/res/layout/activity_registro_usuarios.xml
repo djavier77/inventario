@@ -16,6 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="REGISTRO DE USUARIOS"
+        android:gravity="center"
         android:textSize="25sp"
         android:textStyle="bold"
         android:layout_marginBottom="30dp"/>
@@ -24,13 +25,13 @@
         android:id="@+id/campoCedula"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="cedula" />
+        android:hint="Cédula:" />
 
     <EditText
         android:id="@+id/campoNombres"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="nombres" />
+        android:hint="Nombres:" />
 
     <EditText
         android:id="@+id/efechaIngreso"
@@ -51,26 +52,26 @@
         android:id="@+id/campoNickname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="nickname" />
+        android:hint="Nickname:" />
 
     <EditText
         android:id="@+id/campoPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="password"
+        android:hint="Password:"
         android:password="true" />
 
     <EditText
         android:id="@+id/campoTelefono"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="telefono" />
+        android:hint="Teléfono:" />
 
     <EditText
         android:id="@+id/campoMail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="mail" />
+        android:hint="Mail:" />
 
     <Spinner
         android:id="@+id/comboCargo"

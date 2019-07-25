@@ -25,37 +25,37 @@
         android:id="@+id/campoCodigoBarra"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Codigo de Barras" />
+        android:hint="Código de Barras:" />
 
     <EditText
         android:id="@+id/campo_id_nombre_producto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nombre producto" />
+        android:hint="Nombre de Producto:" />
 
     <EditText
         android:id="@+id/campo_cantidad"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Cantidad" />
+        android:hint="Cantidad:" />
 
     <EditText
         android:id="@+id/campo_cantidad_minima"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Cantidad minima" />
+        android:hint="Cantidad Mínima:" />
 
     <EditText
         android:id="@+id/campo_precio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Precio" />
+        android:hint="Precio:" />
 
     <EditText
         android:id="@+id/campo_detalle_producto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Detalle Producto" />
+        android:hint="Detalle de Producto:" />
 
     <Spinner
         android:id="@+id/comboUsuarioProducto"

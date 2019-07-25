@@ -8,8 +8,19 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="#D8C2FAF5"
     android:orientation="vertical"
     tools:context=".ActualizarProductos">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ACTUALIZAR DATOS DE PRODUCTO"
+        android:layout_centerHorizontal="true"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="30dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,13 +32,15 @@
             android:id="@+id/campoActualizarCodBarras"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Codigo de Barras"
+            android:hint="Código de Barras: "
             android:layout_weight="0.93" />
 
         <Button
             android:id="@+id/btnConsultar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="#C9F4F7F8"
+            android:textColor="#000000"
             android:layout_marginLeft="10dp"
             android:text="Buscar"
             android:onClick="onClick"/>
@@ -39,33 +52,31 @@
         android:id="@+id/campoNombreProd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nombre Producto"/>
+        android:hint="Nombre de Producto:"/>
 
     <EditText
         android:id="@+id/campoCantidad"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Cantidad"/>
+        android:hint="Cantidad: "/>
 
     <EditText
         android:id="@+id/campoCantidadMinima"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Cantidad Minima"/>
+        android:hint="Cantidad Mínima:"/>
 
     <EditText
         android:id="@+id/campoPrecio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Precio"/>
+        android:hint="Precio:"/>
 
     <EditText
         android:id="@+id/campoDetalleProd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Detalle"/>
-
-
+        android:hint="Detalle de Producto:"/>
 
     <Spinner
         android:id="@+id/comboCategoriaAP"
@@ -83,6 +94,10 @@
             android:id="@+id/btnActualizar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="5dp"
+            android:background="#C9F4F7F8"
+            android:textColor="#000000"
             android:text="Actualizar"
             android:layout_weight="0.5"
             android:onClick="onClick"/>
@@ -91,6 +106,9 @@
             android:id="@+id/btnEliminar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:background="#C9F4F7F8"
+            android:textColor="#000000"
             android:text="Eliminar"
             android:layout_weight="0.5"
             android:onClick="onClick"/>
