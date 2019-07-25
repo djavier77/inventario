@@ -9,7 +9,6 @@ public class Cargo implements Serializable {
     private String detalleCargo;
 
     public Cargo(){
-
     }
 
     public Cargo(Integer idCargo, String nombreCargo, String detalleCargo) {

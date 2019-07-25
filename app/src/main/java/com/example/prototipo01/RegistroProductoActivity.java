@@ -46,7 +46,7 @@ public class RegistroProductoActivity extends AppCompatActivity {
         campo_detalle_producto = (EditText) findViewById(R.id.campo_detalle_producto);
         comboUsuarios =(Spinner) findViewById(R.id.comboUsuarioProducto);
 
-        consultarListaProductos();
+        consultarListaUsuarios();
 
         ArrayAdapter<CharSequence> adaptadorP=new ArrayAdapter
                 (this,android.R.layout.simple_spinner_item,listaTipoU);
@@ -70,7 +70,7 @@ public class RegistroProductoActivity extends AppCompatActivity {
 
     }
 
-    private void consultarListaProductos() {
+    private void consultarListaUsuarios() {
         SQLiteDatabase db=conn.getReadableDatabase();
 
         Usuarios usuarios=null;
@@ -81,9 +81,9 @@ public class RegistroProductoActivity extends AppCompatActivity {
         while (cursor.moveToNext()){
             usuarios=new Usuarios();
             usuarios.setId_usuario(cursor.getInt(0));
-            usuarios.setNickname(cursor.getString(4));
+            usuarios.setNombres(cursor.getString(2));
 
-            Log.i("Nickname",usuarios.getNickname());
+            Log.i("Nombres",usuarios.getNombres());
 
             tipoListU.add(usuarios);
         }
@@ -119,9 +119,8 @@ public class RegistroProductoActivity extends AppCompatActivity {
         listaTipoU.add("Seleccione Usuario");
 
         for(int i=0;i<tipoListU.size();i++){
-            listaTipoU.add(tipoListU.get(i).getNickname());
+            listaTipoU.add(tipoListU.get(i).getNombres());
         }
-
     }
 
 }
