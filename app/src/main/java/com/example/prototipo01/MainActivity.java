@@ -47,10 +47,10 @@ public class MainActivity extends AppCompatActivity {
                 miIntent=new Intent(MainActivity.this,ActualizarDatos.class);
                 miIntent.putExtra("usuarioLogeado", userLogeado);
                 break;
-            case R.id.fabScanner:
-                miIntent=new Intent(MainActivity.this, ScannerProducto.class);
-                miIntent.putExtra("usuarioLogeado", userLogeado);
-                break;
+            //case R.id.fabScanner:
+              //  miIntent=new Intent(MainActivity.this, ScannerProducto.class);
+                //miIntent.putExtra("usuarioLogeado", userLogeado);
+                //break;
             case R.id.btnScanner:
                 miIntent=new Intent(MainActivity.this, ScannerProducto.class);
                 //miIntent.putExtra("usuarioLogeado", userLogeado);

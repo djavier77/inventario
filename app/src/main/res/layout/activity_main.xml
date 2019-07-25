@@ -141,6 +141,7 @@
         android:text="Bienvenido al sistema de Inventarios"
         android:textSize="10sp" />
 
+    <!--
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -177,7 +178,7 @@
 
     </ScrollView>
 
-<!--
+
     <Button
         android:id="@+id/btnOpcionRegistro"
         android:layout_width="match_parent"
