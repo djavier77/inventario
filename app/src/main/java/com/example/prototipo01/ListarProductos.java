@@ -56,14 +56,14 @@ public class ListarProductos extends AppCompatActivity{
         //cursor.moveToFirst();
         while (cursor.moveToNext()){
             productos=new Productos();
-            productos.setId_producto(cursor.getString(0));
-            productos.setId_nombre_producto(cursor.getString(1));
+            productos.setId_producto(cursor.getString(1));
+            productos.setId_nombre_producto(cursor.getString(2));
             System.out.println("**********************: "+cursor.getString(1));
-            productos.setCantidad(cursor.getInt(2));
-            productos.setCantidad_minima(cursor.getInt(3));
-            productos.setPrecio(cursor.getInt(4));
-            productos.setDetalle_producto(cursor.getString(5));
-            productos.setId_usuario(cursor.getInt(6));
+            productos.setCantidad(cursor.getInt(3));
+            productos.setCantidad_minima(cursor.getInt(4));
+            productos.setPrecio(cursor.getInt(5));
+            productos.setDetalle_producto(cursor.getString(6));
+            productos.setId_usuario(cursor.getInt(7));
 
             listaProductos.add(productos);
         }
@@ -74,8 +74,8 @@ public class ListarProductos extends AppCompatActivity{
         listaInformacion=new ArrayList<String>();
         System.out.println(listaProductos.size());
         for (int i=0; i<listaProductos.size();i++){
-            listaInformacion.add("Producto: "+listaProductos.get(i).getId_nombre_producto()+"\nPrecio: "
-                    +listaProductos.get(i).getPrecio()+"\nUsuario: "+listaProductos.get(i).getId_usuario());
+            listaInformacion.add("Código de Barras: "+listaProductos.get(i).getId_nombre_producto()+"\nPrecio: "
+                    +listaProductos.get(i).getPrecio()+"\nCantidad: "+listaProductos.get(i).getCantidad());
         }
     }
 }
