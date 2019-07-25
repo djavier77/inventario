@@ -24,13 +24,13 @@
         android:id="@+id/campoNombreCargo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="nombre del cargo" />
+        android:hint="Nombre del cargo:" />
 
     <EditText
         android:id="@+id/campoDetalleCargo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="detalle del cargo" />
+        android:hint="Detalle del cargo:" />
 
 
     <Button

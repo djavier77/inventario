@@ -32,7 +32,7 @@
             android:id="@+id/campoActualizarCodBarras"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Codigo de Barras"
+            android:hint="Código de Barras: "
             android:layout_weight="0.93" />
 
         <Button
@@ -52,33 +52,31 @@
         android:id="@+id/campoNombreProd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nombre Producto"/>
+        android:hint="Nombre de Producto:"/>
 
     <EditText
         android:id="@+id/campoCantidad"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Cantidad"/>
+        android:hint="Cantidad: "/>
 
     <EditText
         android:id="@+id/campoCantidadMinima"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Cantidad Minima"/>
+        android:hint="Cantidad Mínima:"/>
 
     <EditText
         android:id="@+id/campoPrecio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Precio"/>
+        android:hint="Precio:"/>
 
     <EditText
         android:id="@+id/campoDetalleProd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Detalle"/>
-
-
+        android:hint="Detalle de Producto:"/>
 
     <Spinner
         android:id="@+id/comboCategoriaAP"
