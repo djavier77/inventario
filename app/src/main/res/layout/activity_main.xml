@@ -14,16 +14,179 @@
     tools:context=".MainActivity">
 
 
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="131dp"
+        app:srcCompat="@mipmap/ic_launcher" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="83dp"
+        android:gravity="center"
+        android:text="Invent v 1.0"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="340dp"
+        android:gravity="center_horizontal">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/twListar"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="Listar Productos" />
+
+            <ImageButton
+                android:id="@+id/btnListarProducto"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:contentDescription="Listar Producto"
+                android:onClick="onClick"
+                android:gravity="center"
+                app:srcCompat="@drawable/listar" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/twRegistrar"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="Actualizar Productos" />
+
+            <ImageButton
+                android:id="@+id/btnActualizarProducto"
+                android:layout_width="140dp"
+                android:layout_height="match_parent"
+                android:onClick="onClick"
+                android:gravity="center"
+                app:srcCompat="@drawable/resgis_produc" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/twActualizar"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="Actualiza Datos Usuario" />
+
+            <ImageButton
+                android:id="@+id/btnActualizar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onClick"
+                app:srcCompat="@drawable/act_user" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/twMensaje"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="Escanear Codigo" />
+
+            <ImageButton
+                android:id="@+id/btnScanner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onClick"
+                app:srcCompat="@drawable/escaner" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="70dp">
+
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="75dp">
+
+        </TableRow>
+    </TableLayout>
+
+
+    <TextView
+        android:id="@+id/twAviso"
+        android:layout_width="match_parent"
+        android:layout_height="63dp"
+        android:gravity="center"
+        android:text="Bienvenido al sistema de Inventarios"
+        android:textSize="10sp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:id="@+id/cal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:orientation="vertical">
+
+            <com.github.clans.fab.FloatingActionMenu
+                android:id="@+id/fabPrincipal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="bottom|end"
+                app:menu_fab_label="Menu">
+
+                <com.github.clans.fab.FloatingActionButton
+                    android:id="@+id/fabScanner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorPrimary"
+                    android:onClick="onClick"
+                    android:src="@drawable/camera_icon"
+                    app:fab_label="Scanner" />
+
+            </com.github.clans.fab.FloatingActionMenu>
+
+
+        </FrameLayout>
+
+    </ScrollView>
+
+<!--
     <Button
         android:id="@+id/btnOpcionRegistro"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
         android:background="#C9F4F7F8"
         android:onClick="onClick"
-        android:layout_marginBottom="5dp"
-        android:layout_marginTop="5dp"
         android:text="Registrar Cargo" />
-
 
     <Button
         android:id="@+id/btnRegistroUsuario"
@@ -88,41 +251,6 @@
         android:layout_marginBottom="5dp"
         android:layout_marginTop="5dp"
         android:text="Mail" />
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <FrameLayout
-            android:id="@+id/cal"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
-            android:orientation="vertical">
-
-            <com.github.clans.fab.FloatingActionMenu
-                android:id="@+id/fabPrincipal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentBottom="true"
-                android:layout_gravity="bottom|end"
-                app:menu_fab_label="Menu">
-
-                <com.github.clans.fab.FloatingActionButton
-                    android:id="@+id/fabScanner"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@color/colorPrimary"
-                    android:onClick="onClick"
-                    android:src="@drawable/camera_icon"
-                    app:fab_label="Scanner" />
-
-            </com.github.clans.fab.FloatingActionMenu>
-
-
-        </FrameLayout>
-
-    </ScrollView>
+-->
 
 </LinearLayout>
