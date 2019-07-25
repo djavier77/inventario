@@ -65,7 +65,7 @@ public class ActualizarProductos extends AppCompatActivity {
         String[] parametros={campoActualizarCodBarras.getText().toString()};
 
         db.delete(Utilidades.TABLA_PRODUCTOS,Utilidades.CAMPO_CODIGO_PRODUCTO+"=?",parametros);
-        Toast.makeText(getApplicationContext(),"Ya se Eliminó el usuario",Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(),"Ya se Eliminó el producto",Toast.LENGTH_LONG).show();
         campoActualizarCodBarras.setText("");
         limpiar();
         db.close();
@@ -103,7 +103,7 @@ public class ActualizarProductos extends AppCompatActivity {
             campoDetalleProd.setText(cursor.getString(6));
 
         }catch (Exception e){
-            Toast.makeText(getApplicationContext(),"El documento no existe",Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(),"El producto no existe",Toast.LENGTH_LONG).show();
             limpiar();
         }
 
@@ -124,7 +124,7 @@ public class ActualizarProductos extends AppCompatActivity {
             campoDetalleProd.setText(cursor.getString(5));
             cursor.close();
         }catch (Exception e){
-            Toast.makeText(getApplicationContext(),"El documento no existe",Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(),"El producto no existe",Toast.LENGTH_LONG).show();
             limpiar();
         }
 
