@@ -27,6 +27,13 @@
         android:layout_height="wrap_content"
         android:hint="Código de Barras:" />
 
+    <Button
+        android:id="@+id/buttonSCA"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onClick"
+        android:text="Escanear codigo" />
+
     <EditText
         android:id="@+id/campo_id_nombre_producto"
         android:layout_width="match_parent"

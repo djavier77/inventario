@@ -37,8 +37,8 @@ public class Login extends AppCompatActivity {
 
         conn=new ConexionSQLiteHelper(this,"bd_usuarios",null,1);
         verificacion();
-        registrarUsuarios();
-        registrarUsuariosNoad();
+        registrarCargo();
+        registrarCargoNoad();
     }
 
     public  void registrarUsuario (View view){
@@ -115,7 +115,7 @@ public class Login extends AppCompatActivity {
     }
 
 
-    private void registrarUsuarios() {
+    private void registrarCargo() {
         ConexionSQLiteHelper conn=new ConexionSQLiteHelper(this,"bd_usuarios",null,1);
 
         SQLiteDatabase db=conn.getWritableDatabase();
@@ -132,7 +132,7 @@ public class Login extends AppCompatActivity {
         db.close();
     }
 
-    private void registrarUsuariosNoad() {
+    private void registrarCargoNoad() {
         ConexionSQLiteHelper conn=new ConexionSQLiteHelper(this,"bd_usuarios",null,1);
 
         SQLiteDatabase db=conn.getWritableDatabase();
@@ -165,6 +165,7 @@ public class Login extends AppCompatActivity {
             if(idCargo.equals("1")){
                 Button boton = (Button) findViewById(R.id.btnregistrar);
                 boton.setEnabled(false);
+                boton.setVisibility(View.INVISIBLE);
             }
         }catch (Exception e){
             Toast.makeText(getApplicationContext(),"El Usuario no existe",Toast.LENGTH_LONG).show();
