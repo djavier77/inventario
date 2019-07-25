@@ -6,6 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#D8C2FAF5"
     tools:context=".correo.MainActivityMail">
 
     <TextView
@@ -40,5 +41,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/buttonSend"
+        android:background="#C9F4F7F8"
         android:text="ENVIAR"/>
 </LinearLayout>
