@@ -30,6 +30,9 @@
         <activity
             android:name=".ListarProductos"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".ActualizarProductos"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
