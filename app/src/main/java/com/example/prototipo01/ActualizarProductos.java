@@ -1,6 +1,7 @@
 package com.example.prototipo01;
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -9,30 +10,37 @@ import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.prototipo01.entidades.Cargo;
 import com.example.prototipo01.entidades.Productos;
 import com.example.prototipo01.entidades.Usuarios;
 import com.example.prototipo01.utilidades.Utilidades;
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
 
 import java.util.ArrayList;
 
 public class ActualizarProductos extends AppCompatActivity {
+    private Button btnScanner;
+    String t;
     EditText campoDetalleProd,campoPrecio,campoCantidadMinima,campoCantidad,campoNombreProd,campoActualizarCodBarras;
     //
     ConexionSQLiteHelper conn;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_actualizar_productos);
-
+        btnScanner=findViewById(R.id.buttonSCA);
         conn=new ConexionSQLiteHelper(getApplicationContext(),"bd_usuarios",null,1);
 
         campoActualizarCodBarras= (EditText) findViewById(R.id.campoActualizarCodBarras);
@@ -50,6 +58,7 @@ public class ActualizarProductos extends AppCompatActivity {
         switch (view.getId()){
             case R.id.btnConsultar:
 //                consultar();
+                new IntentIntegrator(ActualizarProductos.this).initiateScan();
                 consultarSql();
                 break;
             case R.id.btnActualizar: actualizarUsuario();
@@ -138,6 +147,56 @@ public class ActualizarProductos extends AppCompatActivity {
         campoCantidadMinima.setText("");
         campoPrecio.setText("");
         campoDetalleProd.setText("");
+    }
+
+    ///PCODIGO PARA OCUPAR ESCANER
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        IntentResult result= IntentIntegrator.parseActivityResult(requestCode,resultCode,data);
+        if (result !=null)
+            if (result.getContents() != null){
+                campoActualizarCodBarras.setText(result.getContents().trim());
+
+
+            }else {
+                campoActualizarCodBarras.setText("Error al escanear de barras");
+
+            }
+
+    }
+
+    private View.OnClickListener mOnClickListener=new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            switch (view.getId()){
+                case R.id.button:
+                    new IntentIntegrator(ActualizarProductos.this).initiateScan();
+                    break;
+            }
+        }
+    };
+
+    @Override
+    protected void onSaveInstanceState(Bundle guardaEstado) {
+        super.onSaveInstanceState(guardaEstado);
+        //guardamos en la variable t el texto del campo EditText
+        t = campoActualizarCodBarras.getText().toString();
+        //lo "guardamos" en el Bundle
+        guardaEstado.putString("text", t);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle recuperaEstado) {
+        super.onRestoreInstanceState(recuperaEstado);
+        //recuperamos el String del Bundle
+        t = recuperaEstado.getString("text");
+        //Seteamos el valor del EditText con el valor de nuestra cadena
+        campoActualizarCodBarras.setText(t);
+        //codigoBarra=t;
+
+
     }
 
 
