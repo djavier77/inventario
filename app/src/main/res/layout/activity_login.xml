@@ -15,12 +15,31 @@
     tools:context=".Login">
 
     <TextView
+        android:id="@+id/etiValorBie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginBottom="30dp"
+        android:text="BIENVENIDO"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+    <TextView
         android:id="@+id/etiValor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_marginBottom="30dp"
-        android:text="BIENVENIDO A INVETN APP V 1.0"
+        android:text="InventLib APP"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/etiValorVersio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginBottom="30dp"
+        android:text="V 1.0"
         android:textSize="25sp"
         android:textStyle="bold" />
 

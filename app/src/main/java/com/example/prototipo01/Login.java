@@ -9,6 +9,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -35,7 +36,9 @@ public class Login extends AppCompatActivity {
         etiValor = (TextView) findViewById(R.id.etiValor);
 
         conn=new ConexionSQLiteHelper(this,"bd_usuarios",null,1);
+        verificacion();
         registrarUsuarios();
+        registrarUsuariosNoad();
     }
 
     public  void registrarUsuario (View view){
@@ -50,7 +53,7 @@ public class Login extends AppCompatActivity {
 
         try {
             //select nombre,telefono from usuario where codigo=?
-            Cursor cursor=db.rawQuery("select nickname,password from usuario where nickname='"+usuarioIng+"'",null);
+            Cursor cursor=db.rawQuery("select nickname,password,id_cargo from usuario where nickname='"+usuarioIng+"'",null);
 
             //DSCENCRIPTAR CLAVE
             //Creamos otro objeto de nuestra clase RSA
@@ -70,19 +73,27 @@ public class Login extends AppCompatActivity {
                 //capturamos los valores del cursos y lo almacenamos en variable
                 String usua = cursor.getString(0);
                 String pass = cursor.getString(1);
+                String idCargo = cursor.getString(2);
 
                 //Desciframos
                 String decode_text_pass = rsa2.Decrypt(pass);
-                Toast.makeText(this,"---"+decode_text_pass,Toast.LENGTH_LONG).show();
-
+                //Toast.makeText(this,"---"+decode_text_pass,Toast.LENGTH_LONG).show();
 
 
                 //preguntamos si los datos ingresados son iguales
                 if (usuarioIng.equals(usua) && passIng.equals(decode_text_pass)) {
-                    Toast.makeText(this,"Ingresando",Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent(this, MainActivity.class);
-                    intent.putExtra("usuario", usuarioIng);
-                    startActivity(intent);
+                    if (idCargo.equals("1")) {
+                        Toast.makeText(this, "Ingresando", Toast.LENGTH_LONG).show();
+                        Intent intent = new Intent(this, MainActivityAdmin.class);
+                        intent.putExtra("usuario", usuarioIng);
+                        startActivity(intent);
+                    }
+                    else {
+                        Toast.makeText(this, "Ingresando", Toast.LENGTH_LONG).show();
+                        Intent intent = new Intent(this, MainActivity.class);
+                        intent.putExtra("usuario", usuarioIng);
+                        startActivity(intent);
+                    }
                 }
             }
         }catch (Exception e){
@@ -108,6 +119,46 @@ public class Login extends AppCompatActivity {
         //Toast.makeText(getApplicationContext(),"Registrado correctamente: "+idResultante, Toast.LENGTH_SHORT).show();
 
         db.close();
+    }
+
+    private void registrarUsuariosNoad() {
+        ConexionSQLiteHelper conn=new ConexionSQLiteHelper(this,"bd_usuarios",null,1);
+
+        SQLiteDatabase db=conn.getWritableDatabase();
+
+        ContentValues values=new ContentValues();
+        values.put(Utilidades.CAMPO_ID_CARGO,2);
+        values.put(Utilidades.CAMPO_NOMBRE_CARGO,"Empleado");
+        values.put(Utilidades.CAMPO_DETALLE_CARGO,"Encargado de productos");
+
+        Long idResultante=db.insert(Utilidades.TABLA_CARGO,Utilidades.CAMPO_NOMBRE_CARGO,values);
+
+        //Toast.makeText(getApplicationContext(),"Registrado correctamente: "+idResultante, Toast.LENGTH_SHORT).show();
+
+        db.close();
+    }
+    private void verificacion(){
+        SQLiteDatabase db=conn.getReadableDatabase();
+
+
+        try {
+            //select nombre,telefono from usuario where codigo=?
+            Cursor cursor=db.rawQuery("select id_cargo from usuario where id_cargo=1",null);
+
+            String idCargo=null;
+            if(cursor.moveToFirst()==true) {
+                //capturamos los valores del cursos y lo almacenamos en variable
+
+                idCargo = cursor.getString(0);
+            }
+            if(idCargo.equals("1")){
+                Button boton = (Button) findViewById(R.id.btnregistrar);
+                boton.setEnabled(false);
+            }
+        }catch (Exception e){
+            Toast.makeText(getApplicationContext(),"El Usuario no existe",Toast.LENGTH_LONG).show();
+            //        limpiar();
+        }
     }
 }
 
