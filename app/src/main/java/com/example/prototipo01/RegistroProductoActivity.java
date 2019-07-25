@@ -141,8 +141,14 @@ public class RegistroProductoActivity extends AppCompatActivity {
 
         Long idResultante=db.insert(Utilidades.TABLA_PRODUCTOS,Utilidades.CAMPO_NOMBRE_PRODUCTO,values);
 
-        Toast.makeText(getApplicationContext(),"Id Registro: "+idResultante,Toast.LENGTH_SHORT).show();
+
         db.close();
+        if(idResultante.toString().equals("-1")){
+            Toast.makeText(getApplicationContext(),"ERROR al insertar, codigo duplicado",Toast.LENGTH_SHORT).show();
+        }
+        else {
+            Toast.makeText(getApplicationContext(),"Id Registro: "+idResultante,Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void obtenerListaU() {

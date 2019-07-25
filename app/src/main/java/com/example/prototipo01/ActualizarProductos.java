@@ -194,6 +194,7 @@ public class ActualizarProductos extends AppCompatActivity {
         t = recuperaEstado.getString("text");
         //Seteamos el valor del EditText con el valor de nuestra cadena
         campoActualizarCodBarras.setText(t);
+        consultarSql();
         //codigoBarra=t;
 
 

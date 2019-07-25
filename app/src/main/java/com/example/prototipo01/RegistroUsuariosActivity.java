@@ -190,8 +190,14 @@ public class RegistroUsuariosActivity extends AppCompatActivity {
             //Long idResultante=db.insert(Utilidades.TABLA_MASCOTA,Utilidades.CAMPO_ID_MASCOTA,values);
             Long idResultante=db.insert(Utilidades.TABLA_USUARIO,Utilidades.CAMPO_NOMBRES,values);
 
-            Toast.makeText(getApplicationContext(),"Se registro correctamente: "+idResultante,Toast.LENGTH_SHORT).show();
+
             db.close();
+            if(idResultante.toString().equals("-1")){
+                Toast.makeText(getApplicationContext(),"ERROR al insertar, codigo duplicado",Toast.LENGTH_SHORT).show();
+            }
+            else{
+                Toast.makeText(getApplicationContext(),"Se registro correctamente: "+idResultante,Toast.LENGTH_SHORT).show();
+            }
             finish();
         }else{
             Toast.makeText(getApplicationContext(),"Debe seleccionar un Cargo",Toast.LENGTH_LONG).show();

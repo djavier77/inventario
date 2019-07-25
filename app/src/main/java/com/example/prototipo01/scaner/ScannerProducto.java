@@ -178,7 +178,7 @@ public class ScannerProducto extends AppCompatActivity {
             System.out.println("**********************: "+cursor.getString(2));
             productos.setCantidad(cursor.getInt(3));
             productos.setCantidad_minima(cursor.getInt(4));
-            productos.setPrecio(cursor.getInt(5));
+            productos.setPrecio(cursor.getString(5));
             productos.setDetalle_producto(cursor.getString(6));
             productos.setId_usuario(cursor.getInt(7));
 

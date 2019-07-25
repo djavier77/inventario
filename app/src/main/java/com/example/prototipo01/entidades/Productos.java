@@ -8,14 +8,14 @@ public class Productos implements Serializable {
     private String id_nombre_producto;
     private Integer cantidad;
     private Integer cantidad_minima;
-    private Integer precio;
+    private String precio;
     private String detalle_producto;
     private Integer id_usuario;
 
     public Productos() {
     }
 
-    public Productos(String id_producto, String codigo_producto, String id_nombre_producto, Integer cantidad, Integer cantidad_minima, Integer precio, String detalle_producto, Integer id_usuario) {
+    public Productos(String id_producto, String codigo_producto, String id_nombre_producto, Integer cantidad, Integer cantidad_minima, String precio, String detalle_producto, Integer id_usuario) {
         this.id_producto = id_producto;
         this.codigo_producto = codigo_producto;
         this.id_nombre_producto = id_nombre_producto;
@@ -58,11 +58,11 @@ public class Productos implements Serializable {
         this.cantidad_minima = cantidad_minima;
     }
 
-    public Integer getPrecio() {
+    public String getPrecio() {
         return precio;
     }
 
-    public void setPrecio(Integer precio) {
+    public void setPrecio(String precio) {
         this.precio = precio;
     }
 
