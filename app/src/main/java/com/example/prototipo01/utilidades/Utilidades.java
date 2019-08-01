@@ -50,5 +50,15 @@ public class Utilidades {
             +CAMPO_DETALLE_PRODUCTO+" TEXT, "+CAMPO_ID_USUARIO+" INTEGER NOT NULL," +
             "FOREIGN KEY("+CAMPO_ID_USUARIO+") REFERENCES "+TABLA_USUARIO+"("+CAMPO_ID_USUARIO+") )";
 
+    //Constantes campos tabla
+    public static final String TABLA_PAIS="pais";
+    public static final String CAMPO_ID_PAIS="id_pais";
+    public static final String CAMPO_NOMBRE_PAIS="nombre_pais";
+    public static final String CAMPO_OBSERVACIONES="observaciones";
+
+    public static final String CREAR_TABLA_PAIS="CREATE TABLE "+TABLA_PAIS+" ("+CAMPO_ID_PAIS+" INTEGER PRIMARY KEY AUTOINCREMENT, "
+            +CAMPO_NOMBRE_PAIS+" TEXT, "+CAMPO_OBSERVACIONES+" TEXT)";
+
+
 }
 

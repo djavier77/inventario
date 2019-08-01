@@ -18,10 +18,10 @@ import com.example.prototipo01.utilidades.Utilidades;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
-public class ActualizarProductos extends AppCompatActivity {
+public class ActualizarPais extends AppCompatActivity {
     private Button btnScanner;
     String t;
-    EditText campoDetalleProd,campoPrecio,campoCantidadMinima,campoCantidad,campoNombreProd,campoActualizarCodBarras;
+    EditText campoDetalleProd,campoPrecio,campoCantidadMinima,campoObervacion,campoNombrePais,CampoIDPais;
     //
     ConexionSQLiteHelper conn;
 
@@ -30,16 +30,14 @@ public class ActualizarProductos extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_actualizar_productos);
+        setContentView(R.layout.activity_actualizar_pais);
         btnScanner=findViewById(R.id.buttonSCA);
         conn=new ConexionSQLiteHelper(getApplicationContext(),"bd_usuarios",null,1);
 
-        campoActualizarCodBarras= (EditText) findViewById(R.id.campoIsPais);
-        campoNombreProd= (EditText) findViewById(R.id.campoNombrePais);
-        campoCantidad= (EditText) findViewById(R.id.campoObservacion);
-        campoCantidadMinima= (EditText) findViewById(R.id.campoCantidadMinima);
-        campoPrecio= (EditText) findViewById(R.id.campoPrecio);
-        campoDetalleProd= (EditText) findViewById(R.id.campoDetalleProd);
+        CampoIDPais= (EditText) findViewById(R.id.campoIsPais);
+        campoNombrePais= (EditText) findViewById(R.id.campoNombrePais);
+        campoObervacion= (EditText) findViewById(R.id.campoObservacion);
+
         //comboCategoria= (Spinner) findViewById(R.id.comboCategoriaAP);
 
     }
@@ -49,7 +47,7 @@ public class ActualizarProductos extends AppCompatActivity {
         switch (view.getId()){
             case R.id.btnConsultar:
 //                consultar();
-                new IntentIntegrator(ActualizarProductos.this).initiateScan();
+                //new IntentIntegrator(ActualizarPais.this).initiateScan();
                 consultarSql();
                 break;
             case R.id.btnActualizarPais: actualizarUsuario();
@@ -62,45 +60,40 @@ public class ActualizarProductos extends AppCompatActivity {
 
     private void eliminarUsuario() {
         SQLiteDatabase db=conn.getWritableDatabase();
-        String[] parametros={campoActualizarCodBarras.getText().toString()};
+        String[] parametros={CampoIDPais.getText().toString()};
 
         db.delete(Utilidades.TABLA_PRODUCTOS,Utilidades.CAMPO_CODIGO_PRODUCTO+"=?",parametros);
         Toast.makeText(getApplicationContext(),"Ya se Eliminó el producto",Toast.LENGTH_LONG).show();
-        campoActualizarCodBarras.setText("");
+        CampoIDPais.setText("");
         limpiar();
         db.close();
     }
 
     private void actualizarUsuario() {
         SQLiteDatabase db=conn.getWritableDatabase();
-        String[] parametros={campoActualizarCodBarras.getText().toString()};
+        String[] parametros={CampoIDPais.getText().toString()};
         ContentValues values=new ContentValues();
-        values.put(Utilidades.CAMPO_NOMBRE_PRODUCTO,campoNombreProd.getText().toString());
-        values.put(Utilidades.CAMPO_CANTIDAD,campoCantidad.getText().toString());
-        values.put(Utilidades.CAMPO_CANTIDAD_MINIMA,campoCantidadMinima.getText().toString());
-        values.put(Utilidades.CAMPO_PRECIO,campoPrecio.getText().toString());
-        values.put(Utilidades.CAMPO_DETALLE_PRODUCTO,campoDetalleProd.getText().toString());
+        values.put(Utilidades.CAMPO_NOMBRE_PAIS,campoNombrePais.getText().toString());
+        values.put(Utilidades.CAMPO_OBSERVACIONES,campoObervacion.getText().toString());
 
-        db.update(Utilidades.TABLA_PRODUCTOS,values,Utilidades.CAMPO_CODIGO_PRODUCTO+"=?",parametros);
-        Toast.makeText(getApplicationContext(),"Ya se actualizó el producto",Toast.LENGTH_LONG).show();
+        db.update(Utilidades.TABLA_PAIS,values,Utilidades.CAMPO_ID_PAIS+"=?",parametros);
+        Toast.makeText(getApplicationContext(),"Ya se actualizó el pais",Toast.LENGTH_LONG).show();
         db.close();
 
     }
 
     private void consultarSql() {
         SQLiteDatabase db=conn.getReadableDatabase();
-        String[] parametros={campoActualizarCodBarras.getText().toString()};
+        String[] parametros={CampoIDPais.getText().toString()};
 
         try {
             //select nombre,telefono from usuario where codigo=?
-            Cursor cursor=db.rawQuery("SELECT * FROM "+Utilidades.TABLA_PRODUCTOS+" WHERE "+Utilidades.CAMPO_CODIGO_PRODUCTO+"=? ",parametros);
+            Cursor cursor=db.rawQuery("SELECT * FROM "+Utilidades.TABLA_PAIS+" WHERE "+Utilidades.CAMPO_ID_PAIS+"=? ",parametros);
 
             cursor.moveToFirst();
-            campoNombreProd.setText(cursor.getString(2));
-            campoCantidad.setText(cursor.getString(3));
-            campoCantidadMinima.setText(cursor.getString(4));
-            campoPrecio.setText(cursor.getString(5));
-            campoDetalleProd.setText(cursor.getString(6));
+            campoNombrePais.setText(cursor.getString(1));
+            campoObervacion.setText(cursor.getString(2));
+
 
         }catch (Exception e){
             Toast.makeText(getApplicationContext(),"El producto no existe",Toast.LENGTH_LONG).show();
@@ -111,17 +104,15 @@ public class ActualizarProductos extends AppCompatActivity {
 
     private void consultar() {
         SQLiteDatabase db=conn.getReadableDatabase();
-        String[] parametros={campoActualizarCodBarras.getText().toString()};
+        String[] parametros={CampoIDPais.getText().toString()};
         String[] campos={Utilidades.CAMPO_NOMBRES,Utilidades.CAMPO_TELEFONO};
 
         try {
             Cursor cursor =db.rawQuery("SELECT * FROM "+Utilidades.TABLA_PRODUCTOS+" WHERE "+Utilidades.CAMPO_CODIGO_PRODUCTO+"=? ",parametros);
             cursor.moveToFirst();
-            campoNombreProd.setText(cursor.getString(1));
-            campoCantidad.setText(cursor.getString(2));
-            campoCantidadMinima.setText(cursor.getString(3));
-            campoPrecio.setText(cursor.getString(4));
-            campoDetalleProd.setText(cursor.getString(5));
+            campoNombrePais.setText(cursor.getString(1));
+            campoObervacion.setText(cursor.getString(2));
+
             cursor.close();
         }catch (Exception e){
             Toast.makeText(getApplicationContext(),"El producto no existe",Toast.LENGTH_LONG).show();
@@ -132,9 +123,9 @@ public class ActualizarProductos extends AppCompatActivity {
     }
 
     private void limpiar() {
-        campoActualizarCodBarras.setText("");
-        campoNombreProd.setText("");
-        campoCantidad.setText("");
+        CampoIDPais.setText("");
+        campoNombrePais.setText("");
+        campoObervacion.setText("");
         campoCantidadMinima.setText("");
         campoPrecio.setText("");
         campoDetalleProd.setText("");
@@ -148,11 +139,11 @@ public class ActualizarProductos extends AppCompatActivity {
         IntentResult result= IntentIntegrator.parseActivityResult(requestCode,resultCode,data);
         if (result !=null)
             if (result.getContents() != null){
-                campoActualizarCodBarras.setText(result.getContents().trim());
+                CampoIDPais.setText(result.getContents().trim());
 
 
             }else {
-                campoActualizarCodBarras.setText("Error al escanear de barras");
+                CampoIDPais.setText("Error al escanear de barras");
 
             }
 
@@ -163,7 +154,7 @@ public class ActualizarProductos extends AppCompatActivity {
         public void onClick(View view) {
             switch (view.getId()){
                 case R.id.button:
-                    new IntentIntegrator(ActualizarProductos.this).initiateScan();
+                    new IntentIntegrator(ActualizarPais.this).initiateScan();
                     break;
             }
         }
@@ -173,7 +164,7 @@ public class ActualizarProductos extends AppCompatActivity {
     protected void onSaveInstanceState(Bundle guardaEstado) {
         super.onSaveInstanceState(guardaEstado);
         //guardamos en la variable t el texto del campo EditText
-        t = campoActualizarCodBarras.getText().toString();
+        t = CampoIDPais.getText().toString();
         //lo "guardamos" en el Bundle
         guardaEstado.putString("text", t);
     }
@@ -184,7 +175,7 @@ public class ActualizarProductos extends AppCompatActivity {
         //recuperamos el String del Bundle
         t = recuperaEstado.getString("text");
         //Seteamos el valor del EditText con el valor de nuestra cadena
-        campoActualizarCodBarras.setText(t);
+        CampoIDPais.setText(t);
         consultarSql();
         //codigoBarra=t;
 

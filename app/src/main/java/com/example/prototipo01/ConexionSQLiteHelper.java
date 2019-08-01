@@ -20,6 +20,7 @@ public class ConexionSQLiteHelper extends SQLiteOpenHelper {
         db.execSQL(Utilidades.CREAR_TABLA_CARGO);
         db.execSQL(Utilidades.CREAR_TABLA_USUARIO);
         db.execSQL(Utilidades.CREAR_TABLA_PRODUCTOS);
+        db.execSQL(Utilidades.CREAR_TABLA_PAIS);
     }
 
     @Override

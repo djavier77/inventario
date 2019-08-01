@@ -13,20 +13,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.prototipo01.utilidades.Utilidades;
 
 
-public class RegistroCargoActivity extends AppCompatActivity {
+public class RegistroPais extends AppCompatActivity {
 
-    EditText campoNombreCargo,campoDetalleCargo;
+    EditText campoNombrePais,campoObservacion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_registro_cargo);
+        setContentView(R.layout.activity_registro_pais);
 
         ConexionSQLiteHelper conn=new ConexionSQLiteHelper(this,"bd_usuarios",null,1);
 
-        campoNombreCargo= (EditText) findViewById(R.id.campoNombrePais);
-        campoDetalleCargo= (EditText) findViewById(R.id.campoObervacion);
+        campoNombrePais= (EditText) findViewById(R.id.campoNombrePais);
+        campoObservacion= (EditText) findViewById(R.id.campoObervacion);
 
     }
 
@@ -43,10 +43,10 @@ public class RegistroCargoActivity extends AppCompatActivity {
         SQLiteDatabase db=conn.getWritableDatabase();
 
         ContentValues values=new ContentValues();
-        values.put(Utilidades.CAMPO_NOMBRE_CARGO,campoNombreCargo.getText().toString());
-        values.put(Utilidades.CAMPO_DETALLE_CARGO,campoDetalleCargo.getText().toString());
+        values.put(Utilidades.CAMPO_NOMBRE_PAIS,campoNombrePais.getText().toString());
+        values.put(Utilidades.CAMPO_OBSERVACIONES,campoObservacion.getText().toString());
 
-        Long idResultante=db.insert(Utilidades.TABLA_CARGO,Utilidades.CAMPO_NOMBRE_CARGO,values);
+        Long idResultante=db.insert(Utilidades.TABLA_PAIS,Utilidades.CAMPO_NOMBRE_PAIS,values);
 
         Toast.makeText(getApplicationContext(),"Registrado correctamente: "+idResultante, Toast.LENGTH_SHORT).show();
 

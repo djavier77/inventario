@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 
-import com.example.prototipo01.correo.MainActivityMail;
 import com.example.prototipo01.scaner.ScannerProducto;
 import com.github.clans.fab.FloatingActionMenu;
 
@@ -43,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.btnListarProducto:
                 miIntent=new Intent(MainActivity.this,ListarProductos.class);
                 break;
-            case R.id.btnActualizar:
+            case R.id.btnActualizarPais:
                 miIntent=new Intent(MainActivity.this,ActualizarDatos.class);
                 miIntent.putExtra("usuarioLogeado", userLogeado);
                 break;

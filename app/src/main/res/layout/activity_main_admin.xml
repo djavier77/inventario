@@ -148,10 +148,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="Actualiza Datos Usuario" />
+                android:text="ACTUALIZAR PAIS" />
 
             <ImageButton
-                android:id="@+id/btnActualizar"
+                android:id="@+id/btnActualizarPais"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="onClick"
@@ -168,10 +168,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="Registrar Usuario" />
+                android:text="TABLA PAIS" />
 
             <ImageButton
-                android:id="@+id/btnRegistroUsuario"
+                android:id="@+id/btnPais"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="onClick"

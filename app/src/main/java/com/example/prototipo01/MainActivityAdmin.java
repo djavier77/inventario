@@ -37,8 +37,8 @@ public class MainActivityAdmin extends AppCompatActivity {
             case R.id.btnOpcionRegistro:
                 miIntent=new Intent(MainActivityAdmin.this, RegistroCargoActivity.class);
                 break;
-            case R.id.btnRegistroUsuario:
-                miIntent=new Intent(MainActivityAdmin.this,RegistroUsuariosActivity.class);
+            case R.id.btnPais:
+                miIntent=new Intent(MainActivityAdmin.this,RegistroPais.class);
                 break;
             case R.id.btnRegistroProducto:
                 miIntent=new Intent(MainActivityAdmin.this,RegistroProductoActivity.class);
@@ -46,8 +46,8 @@ public class MainActivityAdmin extends AppCompatActivity {
             case R.id.btnListarProducto:
                 miIntent=new Intent(MainActivityAdmin.this,ListarProductos.class);
                 break;
-            case R.id.btnActualizar:
-                miIntent=new Intent(MainActivityAdmin.this,ActualizarDatos.class);
+            case R.id.btnActualizarPais:
+                miIntent=new Intent(MainActivityAdmin.this,ActualizarPais.class);
                 miIntent.putExtra("usuarioLogeado", userLogeado);
                 break;
             //case R.id.fabScanner:
